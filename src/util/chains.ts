@@ -79,6 +79,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.BASE;
     case 84531:
       return ChainId.BASE_GOERLI;
+    case 1022:
+      return 1022 as ChainId;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -102,6 +104,7 @@ export enum ChainName {
   AVALANCHE = 'avalanche-mainnet',
   BASE = 'base-mainnet',
   BASE_GOERLI = 'base-goerli',
+  BITEIGEN = 'BitEigen',
 }
 
 
@@ -235,6 +238,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.BASE;
     case 84531:
       return ChainName.BASE_GOERLI;
+    case 1022:
+      return ChainName.BITEIGEN;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -279,7 +284,7 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
   }
 };
 
-export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
+export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId | 1022]: Token } = {
   [ChainId.MAINNET]: new Token(
     1,
     '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -397,6 +402,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
   [ChainId.BASE_GOERLI]: new Token(
     ChainId.BASE_GOERLI,
     '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [1022]: new Token(
+    1022,
+    '0x81850632f76E7ceeB606773c3827e351D5A8438b',
     18,
     'WETH',
     'Wrapped Ether'

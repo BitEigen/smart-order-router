@@ -39,6 +39,7 @@ export class UniswapMulticallProvider extends IMulticallProvider<UniswapMultical
     protected gasLimitPerCall = 1_000_000
   ) {
     super();
+    console.log("test update local package")
     const multicallAddress = UNISWAP_MULTICALL_ADDRESSES[this.chainId];
 
     if (!multicallAddress) {

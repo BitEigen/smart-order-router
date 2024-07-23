@@ -35,6 +35,7 @@ import {
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
   USDC_BASE,
+  USDC_BITEIGEN,
   USDC_BNB,
   USDC_ETHEREUM_GNOSIS,
   USDC_GOERLI,
@@ -67,7 +68,7 @@ import { IV3PoolProvider } from './pool-provider';
 import { IV3SubgraphProvider, V3SubgraphPool } from './subgraph-provider';
 
 type ChainTokenList = {
-  readonly [chainId in ChainId]: Token[];
+  readonly [chainId in ChainId | 1022]: Token[];
 };
 
 const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
@@ -154,6 +155,7 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ],
   [ChainId.BASE_GOERLI]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE_GOERLI]],
   [ChainId.BASE]: [WRAPPED_NATIVE_CURRENCY[ChainId.BASE], USDC_BASE],
+  [1022]: [USDC_BITEIGEN],
 };
 
 /**

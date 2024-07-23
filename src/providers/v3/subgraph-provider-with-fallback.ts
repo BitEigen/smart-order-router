@@ -21,6 +21,7 @@ export class V3SubgraphProviderWithFallBacks implements IV3SubgraphProvider {
     providerConfig?: ProviderConfig
   ): Promise<V3SubgraphPool[]> {
     for (let i = 0; i < this.fallbacks.length; i++) {
+      console.log("fallbacks: ", this.fallbacks[i])
       const provider = this.fallbacks[i]!;
       try {
         const pools = await provider.getPools(

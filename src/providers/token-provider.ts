@@ -471,7 +471,7 @@ export const USDC_BASE = new Token(
   'USD Base Coin'
 )
 
-// Base Goerli Tokens 
+// Base Goerli Tokens
 export const USDC_BASE_GOERLI = new Token(
   ChainId.BASE_GOERLI,
   '0x853154e2A5604E5C74a2546E2871Ad44932eB92C',
@@ -537,6 +537,15 @@ export const WBTC_MOONBEAM = new Token(
   'WBTC',
   'Wrapped BTC bridged using Multichain'
 );
+
+// Base Tokens
+export const USDC_BITEIGEN = new Token(
+  1022,
+  '0xA48683bE1d0eccA828CabD12ff66D5Ab063705F9',
+  18,
+  'USDC',
+  'USD Coin'
+)
 
 export class TokenProvider implements ITokenProvider {
   constructor(

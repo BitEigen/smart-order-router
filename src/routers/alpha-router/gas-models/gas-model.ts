@@ -19,6 +19,7 @@ import {
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
   USDC_BASE,
+  USDC_BITEIGEN,
   USDC_BNB,
   USDC_ETHEREUM_GNOSIS,
   USDC_GOERLI,
@@ -47,10 +48,10 @@ import {
 } from '../entities/route-with-valid-quote';
 
 
-// When adding new usd gas tokens, ensure the tokens are ordered 
+// When adding new usd gas tokens, ensure the tokens are ordered
 // from tokens with highest decimals to lowest decimals. For example,
 // DAI_AVAX has 18 decimals and comes before USDC_AVAX which has 6 decimals.
-export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
+export const usdGasTokensByChain: { [chainId in ChainId | 1022]?: Token[] } = {
   [ChainId.MAINNET]: [DAI_MAINNET, USDC_MAINNET, USDT_MAINNET],
   [ChainId.ARBITRUM_ONE]: [DAI_ARBITRUM, USDC_ARBITRUM, USDT_ARBITRUM],
   [ChainId.OPTIMISM]: [DAI_OPTIMISM, USDC_OPTIMISM, USDT_OPTIMISM],
@@ -71,6 +72,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BNB]: [USDT_BNB, USDC_BNB, DAI_BNB],
   [ChainId.AVALANCHE]: [DAI_AVAX, USDC_AVAX],
   [ChainId.BASE]: [USDC_BASE],
+  [1022]: [USDC_BITEIGEN],
 };
 
 export type L1ToL2GasCosts = {
